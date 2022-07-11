@@ -84,7 +84,21 @@ Java 程序开发过程：
 
 关键字是编译器定义的字符串，有特殊的含义或专门用途。
 
-![java key words](../resources/images/java-keywords.png)
+
+| 分类                 | 关键字   |            |          |              |            |           |        |
+| :------------------- | -------- | ---------- | -------- | ------------ | ---------- | --------- | ------ |
+| 访问控制             | private  | protected  | public   |              |            |           |        |
+| 类，方法和变量修饰符 | abstract | class      | extends  | final        | implements | interface | native |
+|                      | new      | static     | strictfp | synchronized | transient  | volatile  | enum   |
+| 程序控制             | break    | continue   | return   | do           | while      | if        | else   |
+|                      | for      | instanceof | switch   | case         | default    | assert    |        |
+| 错误处理             | try      | catch      | throw    | throws       | finally    |           |        |
+| 包相关               | import   | package    |          |              |            |           |        |
+| 基本类型             | boolean  | byte       | char     | double       | float      | int       | long   |
+|                      | short    |            |          |              |            |           |        |
+| 变量引用             | super    | this       | void     |              |            |           |        |
+| 保留字               | goto     | const      |          |              |            |           |        |
+
 
 关键字没有必要刻意去记，在学习编程不断深入的过程中会自然而然地掌握它的含义、用法等。
 
