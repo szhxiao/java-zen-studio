@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="hello" class="HelloSpring"></bean>
+
+    <bean id="user" class="User">
+        <!--有参构造注入属性-->
+        <constructor-arg name="name" value="蓝玉"></constructor-arg>
+        <!--set方法注入属性值-->
+        <property name="address" value="青海西宁"></property>
+
+        <!--设置空值-->
+        <!--<property name="address"><null/></property>-->
+        <!--设置特殊符号-->
+        <!--<property name="address">-->
+        <!--    <value><![CDATA[<<北京>>]]></value>-->
+        <!--</property>-->
+    </bean>
+
+    <bean id="student" class="org.example.Student">
+        <!--数组类型属性注入-->
+        <property name="courses">
+            <array>
+                <value>Java</value>
+                <value>JavaScript</value>
+                <value>Python</value>
+                <value>数据库</value>
+            </array>
+        </property>
+        <property name="books">
+            <list>
+                <value>Core Java</value>
+                <value>ProfessionalJavaScriptforWebDevelopers</value>
+                <value>PythonCrashCourse</value>
+            </list>
+        </property>
+        <property name="scores">
+            <map>
+                <entry key="Programming" value="98"></entry>
+                <entry key="OperatingSystem" value="86"></entry>
+            </map>
+        </property>
+
+        <!--注入List集合类型，值是对象-->
+        <property name="courseList">
+            <list>
+                <ref bean="courseJava"></ref>
+                <ref bean="courseAlgorithm"></ref>
+            </list>
+        </property>
+    </bean>
+    <bean id="courseJava" class="org.example.Course">
+        <property name="cname" value="Java"></property>
+    </bean>
+    <bean id="courseAlgorithm" class="org.example.Course">
+        <property name="cname" value="Algorithm"></property>
+    </bean>
+
+    <bean id="orders" class="org.example.Orders" init-method="init"
+          destroy-method="destroy">
+        <property name="oname" value="Cellphone"></property>
+    </bean>
+</beans>
