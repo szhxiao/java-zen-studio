@@ -1,0 +1,92 @@
+2022-05-11 at 12:58:01 CST DEBUG org.apache.ibatis.cache.decorators.LoggingCache.getObject @60 :-> Cache Hit Ratio [org.example.dao.UserMapper]: 0.0
+2022-05-11 at 12:58:02 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug @137 :-> ==>  Preparing: SELECT `pk_id` id, `uk_uname` uname, `password`, `email` FROM t_user WHERE pk_id = ?
+2022-05-11 at 12:58:02 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug @137 :-> ==> Parameters: 5(Integer)
+2022-05-11 at 12:58:02 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug @137 :-> <==      Total: 1
+2022-05-11 at 12:59:03 CST DEBUG org.apache.ibatis.cache.decorators.LoggingCache.getObject @60 :-> Cache Hit Ratio [org.example.dao.UserMapper]: 0.0
+2022-05-11 at 12:59:03 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug @137 :-> ==>  Preparing: SELECT `pk_id` id, `uk_uname` uname, `password`, `email` FROM t_user WHERE pk_id = ?
+2022-05-11 at 12:59:03 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug @137 :-> ==> Parameters: 5(Integer)
+2022-05-11 at 12:59:03 CST TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger.trace @143 :-> <==    Columns: id, uname, password, email
+2022-05-11 at 12:59:03 CST TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger.trace @143 :-> <==        Row: 5, 鲁迅, luxun, luxun@163.com
+2022-05-11 at 12:59:03 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug @137 :-> <==      Total: 1
+2022-05-11 at 13:03:20 CST DEBUG org.apache.ibatis.cache.decorators.LoggingCache.getObject @60 :-> Cache Hit Ratio [org.example.dao.UserMapper]: 0.0
+2022-05-11 at 13:03:20 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug @137 :-> ==>  Preparing: SELECT `pk_id` id, `uk_uname` uname, `password`, `email` FROM t_user WHERE pk_id = ?
+2022-05-11 at 13:03:20 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug @137 :-> ==> Parameters: 5(Integer)
+2022-05-11 at 13:03:20 CST TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger.trace @143 :-> <==    Columns: id, uname, password, email
+2022-05-11 at 13:03:20 CST TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger.trace @143 :-> <==        Row: 5, 鲁迅, luxun, luxun@163.com
+2022-05-11 at 13:03:20 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug @137 :-> <==      Total: 1
+2022-05-11 at 17:12:47 CST DEBUG org.apache.ibatis.cache.decorators.LoggingCache.getObject @60 :-> Cache Hit Ratio [org.example.dao.UserMapper]: 0.0
+2022-05-11 at 17:12:48 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug @137 :-> ==>  Preparing: SELECT `pk_id` id, `uk_uname` uname, `password`, `email` FROM t_user
+2022-05-11 at 17:12:48 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug @137 :-> ==> Parameters: 
+2022-05-11 at 17:12:48 CST TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger.trace @143 :-> <==    Columns: id, uname, password, email
+2022-05-11 at 17:12:48 CST TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger.trace @143 :-> <==        Row: 1, 王国维, ok, lina@sina.com.cn
+2022-05-11 at 17:12:48 CST TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger.trace @143 :-> <==        Row: 2, kate, ok, hello_kate@126.com
+2022-05-11 at 17:12:48 CST TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger.trace @143 :-> <==        Row: 3, 胡适, hushi, hushi@163.com
+2022-05-11 at 17:12:48 CST TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger.trace @143 :-> <==        Row: 5, 鲁迅, luxun, luxun@163.com
+2022-05-11 at 17:12:48 CST TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger.trace @143 :-> <==        Row: 6, 巴金, bajin, bajin@163.com
+2022-05-11 at 17:12:48 CST TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger.trace @143 :-> <==        Row: 7, 老舍, laoshe, laoshe@163.com
+2022-05-11 at 17:12:48 CST TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger.trace @143 :-> <==        Row: 8, 陈独秀, chenduxiu, chenduxiu@163.com
+2022-05-11 at 17:12:48 CST TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger.trace @143 :-> <==        Row: 9, 陈忠实, chenzhongshi, chenzhongshi@163.com
+2022-05-11 at 17:12:48 CST TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger.trace @143 :-> <==        Row: 10, 矛盾, maodun, maodun@126.com
+2022-05-11 at 17:12:48 CST TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger.trace @143 :-> <==        Row: 11, 路遥, luyao, luyao@163.com
+2022-05-11 at 17:12:48 CST TRACE org.apache.ibatis.logging.jdbc.BaseJdbcLogger.trace @143 :-> <==        Row: 12, 余华, yuhua, yuhua@126.com
+2022-05-11 at 17:12:48 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug @137 :-> <==      Total: 11
+2022-05-11 at 17:13:31 CST DEBUG org.apache.ibatis.cache.decorators.LoggingCache.getObject @60 :-> Cache Hit Ratio [org.example.dao.UserMapper]: 0.0
+2022-05-11 at 17:13:31 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug @137 :-> ==>  Preparing: SELECT `pk_id` id, `uk_uname` uname, `password`, `email` FROM t_user
+2022-05-11 at 17:13:31 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug @137 :-> ==> Parameters: 
+2022-05-11 at 17:13:31 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug @137 :-> <==      Total: 11
+2022-05-11 at 17:19:58 CST DEBUG org.apache.ibatis.cache.decorators.LoggingCache.getObject @60 :-> Cache Hit Ratio [org.example.dao.UserMapper]: 0.0
+2022-05-11 at 17:19:58 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug @137 :-> ==>  Preparing: SELECT count(0) FROM t_user
+2022-05-11 at 17:19:58 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug @137 :-> ==> Parameters: 
+2022-05-11 at 17:19:58 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug @137 :-> <==      Total: 1
+2022-05-11 at 17:19:58 CST DEBUG org.apache.ibatis.cache.decorators.LoggingCache.getObject @60 :-> Cache Hit Ratio [org.example.dao.UserMapper]: 0.0
+2022-05-11 at 17:19:58 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug @137 :-> ==>  Preparing: SELECT `pk_id` id, `uk_uname` uname, `password`, `email` FROM t_user LIMIT ?
+2022-05-11 at 17:19:58 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug @137 :-> ==> Parameters: 5(Integer)
+2022-05-11 at 17:19:58 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug @137 :-> <==      Total: 5
+2022-05-11 at 17:27:43 CST DEBUG org.apache.ibatis.cache.decorators.LoggingCache.getObject @60 :-> Cache Hit Ratio [org.example.dao.UserMapper]: 0.0
+2022-05-11 at 17:27:43 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug @137 :-> ==>  Preparing: SELECT count(0) FROM t_user
+2022-05-11 at 17:27:43 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug @137 :-> ==> Parameters: 
+2022-05-11 at 17:27:43 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug @137 :-> <==      Total: 1
+2022-05-11 at 17:27:43 CST DEBUG org.apache.ibatis.cache.decorators.LoggingCache.getObject @60 :-> Cache Hit Ratio [org.example.dao.UserMapper]: 0.0
+2022-05-11 at 17:27:43 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug @137 :-> ==>  Preparing: SELECT `pk_id` id, `uk_uname` uname, `password`, `email` FROM t_user LIMIT ?
+2022-05-11 at 17:27:43 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug @137 :-> ==> Parameters: 5(Integer)
+2022-05-11 at 17:27:43 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug @137 :-> <==      Total: 5
+2022-05-11 at 17:30:17 CST DEBUG org.apache.ibatis.cache.decorators.LoggingCache.getObject @60 :-> Cache Hit Ratio [org.example.dao.UserMapper]: 0.0
+2022-05-11 at 17:30:17 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug @137 :-> ==>  Preparing: SELECT count(0) FROM t_user
+2022-05-11 at 17:30:17 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug @137 :-> ==> Parameters: 
+2022-05-11 at 17:30:17 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug @137 :-> <==      Total: 1
+2022-05-11 at 17:30:17 CST DEBUG org.apache.ibatis.cache.decorators.LoggingCache.getObject @60 :-> Cache Hit Ratio [org.example.dao.UserMapper]: 0.0
+2022-05-11 at 17:30:17 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug @137 :-> ==>  Preparing: SELECT `pk_id` id, `uk_uname` uname, `password`, `email` FROM t_user LIMIT ?
+2022-05-11 at 17:30:17 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug @137 :-> ==> Parameters: 5(Integer)
+2022-05-11 at 17:30:17 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug @137 :-> <==      Total: 5
+2022-05-11 at 17:36:53 CST DEBUG org.apache.ibatis.cache.decorators.LoggingCache.getObject @60 :-> Cache Hit Ratio [org.example.dao.UserMapper]: 0.0
+2022-05-11 at 17:36:53 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug @137 :-> ==>  Preparing: SELECT count(0) FROM t_user
+2022-05-11 at 17:36:53 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug @137 :-> ==> Parameters: 
+2022-05-11 at 17:36:53 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug @137 :-> <==      Total: 1
+2022-05-11 at 17:36:53 CST DEBUG org.apache.ibatis.cache.decorators.LoggingCache.getObject @60 :-> Cache Hit Ratio [org.example.dao.UserMapper]: 0.0
+2022-05-11 at 17:36:53 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug @137 :-> ==>  Preparing: SELECT `pk_id` id, `uk_uname` uname, `password`, `email` FROM t_user LIMIT ?
+2022-05-11 at 17:36:53 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug @137 :-> ==> Parameters: 5(Integer)
+2022-05-11 at 17:36:53 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug @137 :-> <==      Total: 5
+2022-05-11 at 17:39:58 CST DEBUG org.apache.ibatis.cache.decorators.LoggingCache.getObject @60 :-> Cache Hit Ratio [org.example.dao.UserMapper]: 0.0
+2022-05-11 at 17:39:58 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug @137 :-> ==>  Preparing: SELECT count(0) FROM t_user
+2022-05-11 at 17:39:58 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug @137 :-> ==> Parameters: 
+2022-05-11 at 17:39:58 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug @137 :-> <==      Total: 1
+2022-05-11 at 17:39:58 CST DEBUG org.apache.ibatis.cache.decorators.LoggingCache.getObject @60 :-> Cache Hit Ratio [org.example.dao.UserMapper]: 0.0
+2022-05-11 at 17:39:58 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug @137 :-> ==>  Preparing: SELECT `pk_id` id, `uk_uname` uname, `password`, `email` FROM t_user LIMIT ?
+2022-05-11 at 17:39:58 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug @137 :-> ==> Parameters: 5(Integer)
+2022-05-11 at 17:39:58 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug @137 :-> <==      Total: 5
+2022-05-11 at 17:41:09 CST DEBUG org.apache.ibatis.cache.decorators.LoggingCache.getObject @60 :-> Cache Hit Ratio [org.example.dao.UserMapper]: 0.0
+2022-05-11 at 17:41:09 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug @137 :-> ==>  Preparing: SELECT count(0) FROM t_user
+2022-05-11 at 17:41:09 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug @137 :-> ==> Parameters: 
+2022-05-11 at 17:41:09 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug @137 :-> <==      Total: 1
+2022-05-11 at 17:41:09 CST DEBUG org.apache.ibatis.cache.decorators.LoggingCache.getObject @60 :-> Cache Hit Ratio [org.example.dao.UserMapper]: 0.0
+2022-05-11 at 17:41:09 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug @137 :-> ==>  Preparing: SELECT `pk_id` id, `uk_uname` uname, `password`, `email` FROM t_user LIMIT ?
+2022-05-11 at 17:41:09 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug @137 :-> ==> Parameters: 5(Integer)
+2022-05-11 at 17:41:09 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug @137 :-> <==      Total: 5
+2022-05-11 at 17:42:18 CST DEBUG org.apache.ibatis.cache.decorators.LoggingCache.getObject @60 :-> Cache Hit Ratio [org.example.dao.UserMapper]: 0.0
+2022-05-11 at 17:42:18 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug @137 :-> ==>  Preparing: SELECT count(0) FROM t_user
+2022-05-11 at 17:42:18 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug @137 :-> ==> Parameters: 
+2022-05-11 at 17:42:18 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug @137 :-> <==      Total: 1
+2022-05-11 at 17:42:18 CST DEBUG org.apache.ibatis.cache.decorators.LoggingCache.getObject @60 :-> Cache Hit Ratio [org.example.dao.UserMapper]: 0.0
+2022-05-11 at 17:42:18 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug @137 :-> ==>  Preparing: SELECT `pk_id` id, `uk_uname` uname, `password`, `email` FROM t_user LIMIT ?
+2022-05-11 at 17:42:18 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug @137 :-> ==> Parameters: 5(Integer)
+2022-05-11 at 17:42:18 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger.debug @137 :-> <==      Total: 5

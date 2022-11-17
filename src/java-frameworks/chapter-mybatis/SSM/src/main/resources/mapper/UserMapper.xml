@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.dao.UserMapper">
+    <!-- <cache></cache> -->
+    <cache type="org.mybatis.caches.ehcache.EhcacheCache"/>
+    
+    <sql id="selectColumn">
+        `pk_id` id, `uk_uname` uname, `password`, `email`
+    </sql>
+
+    <select id="getUserById" resultType="org.example.pojo.User">
+        SELECT `pk_id` id, `uk_uname` uname, `password`, `email` FROM t_user
+        WHERE  pk_id = #{pk_id}
+    </select>
+
+    <select id="getUsers" resultType="org.example.pojo.User">
+        SELECT `pk_id` id, `uk_uname` uname, `password`, `email` FROM t_user
+    </select>
+</mapper>

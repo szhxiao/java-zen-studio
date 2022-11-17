@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!-- 引入数据库连接池配置文件 -->
+    <properties resource="druid.properties"></properties>
+
+    <settings>
+        <!-- 开启驼峰命名 -->
+        <setting name="mapUnderscoreToCamelCase" value="true" />
+        <!-- 设置数据库jdbcTypeForNull -->
+        <setting name="jdbcTypeForNull" value="NULL" />
+        <!-- 设置延时加载 -->
+        <setting name="lazyLoadingEnabled" value="true" />
+        <setting name="aggressiveLazyLoading" value="false" />
+        <!-- 配置日志工具 -->
+        <setting name="logImpl" value="LOG4J2"/>
+    </settings>
+    
+    <!-- 别名处理器 -->
+    <!-- 别名不区分大小写 -->
+    <typeAliases>
+        <!-- type指定类型全类名，默认别名是类名小写 -->
+        <!-- <typeAlias type="org.example.pojo.User" alias="user"/> -->
+
+        <!-- 批量起别名 -->
+        <!-- name属性指定包名，为当前包及后代包的每个类起默认别名 -->
+        <package name="org.example.pojo"/>
+
+        <!-- 批量起别名情况下，使用@Alias注解为指定类起别名 -->
+    </typeAliases>
+
+    <!-- 可配置多种环境，default指定使用某种环境 -->
+    <!-- environment配置一个具体的环境信息，必须有transactionManager和dataSource两个标签 -->
+    <!-- id代表当前环境的唯一标识，transactionManager是事务管理器，dataSource是数据库 -->
+    <environments default="mysql">
+        <!-- 配置Druid数据库连接池 -->
+        <environment id="mysql">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <!-- 配置数据库连接信息 -->
+                <property name="driver" value="${jdbc.driverClassName}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!-- 将sql映射文件一定要注册到全局配置文件(mybatis-config.xml) -->
+    <mappers>
+        <!-- mapper注册一个sql映射，resource引用类路径下的sql映射文件，url引用网络或磁盘文件 -->
+        <mapper resource="mapper/UserMapper.xml"/>
+
+        <!-- 批量注册 -->
+        <package name="com.example.dao"/>
+    </mappers>
+</configuration>

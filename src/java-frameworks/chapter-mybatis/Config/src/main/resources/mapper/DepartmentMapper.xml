@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.dao.DepartmentMapper">
+
+    <select id="getDepartmentById" resultType="org.example.pojo.Department">
+        SELECT `pk_id` id, `uk_dept_name` deptName FROM t_dept WHERE  pk_id = #{pk_id}
+    </select>
+
+    <resultMap id="deptResult" type="org.example.pojo.Department">
+        <id column="dept_id" property="id"/>
+        <result column="dept_name" property="deptName"/>
+        <!-- collection定义集合属性封装规则 -->
+        <collection property="users"
+                    ofType="org.example.pojo.UserPlus">
+            <!-- 定义集合中元素封装规则 -->
+            <id column="user_id" property="id"/>
+            <result column="user_name" property="uname"/>
+            <result column="user_password" property="password"/>
+            <result column="user_email" property="email"/>
+        </collection>
+    </resultMap>
+
+    <!-- getDepartmentAndUsersById -->
+    <select id="getDepartmentAndUsersById" resultMap="deptResult">
+        SELECT td.pk_id dept_id, td.uk_dept_name dept_name,
+        tu.pk_id user_id, tu.uk_uname user_name, tu.password user_password, tu.email user_email
+        FROM t_dept td LEFT JOIN t_user tu
+        ON td.pk_id = tu.dept_id
+        WHERE td.pk_id = 1;
+    </select>
+    
+    <resultMap id="deptStepResult"
+               type="org.example.pojo.Department">
+        <id column="dept_id" property="id"/>
+        <result column="dept_name" property="deptName"/>
+        <collection property="users"
+                    select="org.example.dao.UserMapperPlus.getUserByDepartment"
+                    column="dept_id">
+            <!-- 若要传递多列值，可以将多列值封装为Map -->
+            <!-- 即column="{key1=column1,key2=column2}" -->
+        </collection>
+    </resultMap>
+
+    <!-- Department getDepartmentByIdStep(Integer id); -->
+    <select id="getDepartmentByIdStep" resultMap="deptStepResult">
+        SELECT `pk_id` dept_id, `uk_dept_name` dept_name FROM t_dept WHERE
+        pk_id =
+        #{pk_id}
+    </select>
+
+</mapper>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>User Info</title>
+    </head>
+    <body>
+        <h1>查询所有用户信息</h1>
+        <table id="t_user_data">
+            <tr>
+                <th>User Info</th>
+            </tr>
+            <tr>
+                <th>序号</th>
+                <th>姓名</th>
+                <th>密码</th>
+                <th>邮箱</th>
+            </tr>
+            <tr th:each="user : ${userList}">
+                <td th:text="${user.id}"></td>
+                <td th:text="${user.uname}"></td>
+                <td th:text="${user.password}"></td>
+                <td th:text="${user.email}"></td>
+                <!-- <td> -->
+                <!--     <a th:href="@{/user/}+${user.id}" @click="removeUser" -->
+                <!--         >delete</a -->
+                <!--     > -->
+                <!--     &lt;!&ndash; <a th:href="@{'/user/'+${user.id}}">delete</a> &ndash;&gt; -->
+                <!--     <a th:href="@{/user/}+${user.id}">update</a> -->
+                <!-- </td> -->
+            </tr>
+            <!-- <tr> -->
+            <!--     <footer> -->
+            <!--         <a th:href="@{/saveUser}">添加用户</a> -->
+            <!--     </footer> -->
+            <!-- </tr> -->
+        </table>
+        <!-- <form id="deleteForm" method="post"> -->
+        <!--     <input type="hidden" name="_method" value="DELETE" /> -->
+        <!-- </form> -->
+
+        <!-- <script th:src="@{/static/js/vue.js}"></script> -->
+        <!-- <script> -->
+        <!--     var vue = new Vue({ -->
+        <!--         el: "#t_data", -->
+        <!--         methods: { -->
+        <!--             removeUser: function (event) { -->
+        <!--                 var deleteFrom = document.getElementById("deleteForm"); -->
+        <!--                 deleteFrom.action = event.target.href; -->
+        <!--                 // 提交表单 -->
+        <!--                 deleteFrom.submit(); -->
+        <!--                 // 取消超链接的默认行为 -->
+        <!--                 event.preventDefault(); -->
+        <!--             }, -->
+        <!--         }, -->
+        <!--     }); -->
+        <!-- </script> -->
+    </body>
+</html>
