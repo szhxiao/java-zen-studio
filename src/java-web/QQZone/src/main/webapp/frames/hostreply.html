@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>add</title>
+    <link rel="stylesheet" th:href="@{/css/common.css}">
+    <link rel="stylesheet" th:href="@{/css/detail.css}">
+</head>
+<body>
+    <div id="div_add_host_reply"
+        th:if="${session.userBasic.id==session.friend.id}"
+         th:each="reply: ${session.topic.replyList}"
+         >
+<!--        th:each="reply: ${session.topic.replyList}"-->
+    <p class="add_reply_title">添加主人回复</p>
+    <form action="host.do" method="post">
+        <input type="hidden" name="operate"
+               value="addHostReply" />
+        <input type="hidden" name="replyId" th:value="${reply.id}"/>
+<!--        <input type="hidden" name="replyId" th:value="${session.replyId}"/>-->
+        <table>
+            <tr>
+                <th style="width: 25%">添加主人回复：</th>
+                <td>
+                    <input type="text" th:value="${reply.content}" readonly />
+<!--                    <input type="text" th:value="${session.title}" readonly />-->
+                </td>
+            </tr>
+            <tr>
+                <th>主人回复内容：</th>
+                <td><textarea name="content" rows="5"
+                              cols="80"></textarea></td>
+            </tr>
+            <tr>
+                <th colspan="2">
+                    <input type="submit" value=" 回 复 "/>
+                    <input type="reset" value=" 重 置 "/>
+                </th>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>add</title>
+    <link rel="stylesheet" th:href="@{/css/common.css}">
+    <link rel="stylesheet" th:href="@{/css/detail.css}">
+</head>
+<body>
+    <div id="div_to_add">
+    <p class="right8">发表新日志</p>
+    <form action="topic.do" method="post">
+        <input type="hidden" name="operate" value="addTopic" />
+        <!--                <input type="hidden" name="author" th:value="${session.friend.id}"/>-->
+        <table>
+            <tr>
+                <th width="20%">日志标题：</th>
+                <td>
+                    <input type="text" name="title"/>
+                </td>
+            </tr>
+            <tr>
+                <th>日志内容：</th>
+                <td><textarea name="content" rows="5"
+                              cols="80"></textarea></td>
+            </tr>
+            <tr>
+                <th colspan="2">
+                    <input type="submit" value=" 发 表 "/>
+                    <input type="reset" value=" 重 置 "/>
+                </th>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>

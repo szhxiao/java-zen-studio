@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <!-- 开发版 -->
+        <script src="https://unpkg.com/vue@2/dist/vue.js"></script>
+        <!-- 生产版 -->
+        <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2"></script> -->
+        <!-- <script src="https://unpkg.com/vue@2"></script> -->
+        <title>Event基本使用</title>
+    </head>
+    <body>
+        <div id="root">
+            <h2>欢迎来到{{name}}学习</h2>
+            <!-- <button v-on:click="showInfo">点击提示信息</button> -->
+            <button @click="showInfo">点击提示信息</button>
+            <button @click="transferData($event, 66)">点击传递参数</button>
+        </div>
+        <script>
+            var vm = new Vue({
+                el: "#root",
+                data: {
+                    name: "B站大学",
+                    address: "https://www.bilibili.com"
+                },
+                methods: {
+                    showInfo(event) {
+                        console.log(event.target);
+                        console.log(this);
+                        alert("欢迎学习，继续加油啊");
+                    },
+                    transferData(event, number) {
+                        alert("正在传递参数");
+                        console.log(event);
+                        console.log(number);
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>
