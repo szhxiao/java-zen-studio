@@ -1,0 +1,10 @@
+09:59:46.387 [Test worker] INFO  dao.BlogMapperTest - [Blog{1, Java Fundamentals, yaoguang, Sat Sep 03 00:00:00 CST 2022, 1500}, Blog{4, Java Frameworks, yaoguang, Tue Oct 25 00:00:00 CST 2022, 314}]
+10:00:18.254 [Test worker] INFO  dao.BlogMapperTest - [Blog{1, Java Fundamentals, yaoguang, Sat Sep 03 00:00:00 CST 2022, 1500}]
+10:12:37.019 [Test worker] INFO  dao.BlogMapperTest - Blog{null, Java Database, yaoguang, Thu Nov 10 00:00:00 CST 2022, 1890}
+10:15:48.183 [Test worker] INFO  dao.BlogMapperTest - Blog{3, Java Database, kaiyang, Thu Nov 10 00:00:00 CST 2022, 1314}
+11:05:53.717 [Test worker] INFO  dao.UserMapperTest - [User{id=1, uname='lina', password='ok', email='lina@sina.com.cn'}, User{id=2, uname='kate', password='ok', email='hello_kate@126.com'}, User{id=3, uname='jiuer', password='ok', email='jiuer@126.com'}, User{id=4, uname='矛盾', password='maodun', email='maodun@126.com'}, User{id=5, uname='路遥', password='luyao', email='luyao@163.com'}, User{id=6, uname='余华', password='yuhua', email='yuhua@126.com'}]
+11:32:54.325 [Test worker] INFO  dao.UserMapperTest - [User{id=1, uname='lina', password='ok', email='lina@sina.com.cn'}, User{id=2, uname='kate', password='ok', email='hello_kate@126.com'}, User{id=3, uname='jiuer', password='ok', email='jiuer@126.com'}, User{id=4, uname='矛盾', password='maodun', email='maodun@126.com'}, User{id=5, uname='路遥', password='luyao', email='luyao@163.com'}, User{id=6, uname='余华', password='yuhua', email='yuhua@126.com'}]
+11:33:35.284 [Test worker] INFO  dao.UserMapperTest - []
+11:33:53.146 [Test worker] INFO  dao.UserMapperTest - [User{id=6, uname='余华', password='yuhua', email='yuhua@126.com'}]
+11:37:36.389 [Test worker] INFO  dao.UserMapperTest - [User{id=5, uname='路遥', password='luyao', email='luyao@163.com'}]
+11:39:08.032 [Test worker] INFO  dao.UserMapperTest - [User{id=1, uname='lina', password='ok', email='lina@sina.com.cn'}, User{id=2, uname='kate', password='ok', email='hello_kate@126.com'}, User{id=5, uname='路遥', password='luyao', email='luyao@163.com'}, User{id=6, uname='余华', password='yuhua', email='yuhua@126.com'}]
