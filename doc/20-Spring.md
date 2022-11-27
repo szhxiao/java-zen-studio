@@ -11,35 +11,42 @@ Spring 的两个核心部分是 IOC 和 AOP，IOC 即控制反转，把对象创
 ### 20.1.2 Spring 的特点
 
 1. 方便解耦，简化开发
-2. 通过 Spring 提供的 IoC 容器，我们可以将对象之间的依赖关系交由 Spring 进行控制，避免硬编码所造成的过度程序耦合。有了 Spring，用户不必再为单实例模式类、属性文件解析等这些很底层的需求编写代码，可以更专注于上层的应用。
+
+    Spring 是一个轻量级框架，其理念是使现有技术更加容易使用。
+
+2. 控制反转
+
+    通过 Spring 提供的 IoC 容器，我们可以将对象之间的依赖关系交由 Spring 进行控制，避免硬编码所造成的过度程序耦合。有了 Spring，用户不必再为单实例模式类、属性文件解析等这些很底层的需求编写代码，可以更专注于上层的应用。
 
 3. AOP 编程的支持
 
-通过 Spring 提供的 AOP 功能，方便进行面向切面的编程，许多不容易用传统 OOP 实现的功能可以通过 AOP 轻松应付。
+    通过 Spring 提供的 AOP 功能，方便进行面向切面的编程，许多不容易用传统 OOP 实现的功能可以通过 AOP 轻松应付。
 
-3. 声明式事务的支持
+4. 声明式事务的支持
 
-在 Spring 中，我们可以从单调烦闷的事务管理代码中解脱出来，通过声明式方式灵活地进行事务的管理，提高开发效率和质量。
-
-4. 方便程序的测试
-
-可以用非容器依赖的编程方式进行几乎所有的测试工作，在 Spring 里，测试不再是昂贵的操作，而是随手可做的事情。例如：Spring 对 Junit4 支持，可以通过注解方便的测试 Spring 程序。
+    在 Spring 中，我们可以从单调烦闷的事务管理代码中解脱出来，通过声明式方式灵活地进行事务的管理，提高开发效率和质量。
 
 5. 方便集成各种优秀框架
 
-Spring 不排斥各种优秀的开源框架，相反，Spring 可以降低各种框架的使用难度，Spring 提供了对各种优秀框架（如 Struts,Hibernate、Hessian、Quartz）等的直接支持。
+    Spring 不排斥各种优秀的开源框架，相反，Spring 可以降低各种框架的使用难度，Spring 提供了对各种优秀框架（如 Struts,Hibernate、Hessian、Quartz）等的直接支持。
 
 6. 降低 Java EE API 的使用难度
 
-Spring 对很多难用的 Java EE API（如 JDBC，JavaMail，远程调用等）提供了一个薄薄的封装层，通过 Spring 的简易封装，这些 Java EE API 的使用难度大为降低。
+    Spring 对很多难用的 Java EE API（如 JDBC，JavaMail，远程调用等）提供了一个薄薄的封装层，通过 Spring 的简易封装，这些 Java EE API 的使用难度大为降低。
 
 7. Java 源码是经典学习范例
 
-Spring 的源码设计精妙、结构清晰、匠心独运，处处体现着大师对 Java 设计模式灵活运用以及对 Java 技术的高深造诣。Spring 框架源码无疑是 Java 技术的最佳实践范例。如果想在短时间内迅速提高自己的 Java 技术水平和应用开发水平，学习和研究 Spring 源码将会使你收到意想不到的效果。
+    Spring 的源码设计精妙、结构清晰、匠心独运，处处体现着大师对 Java 设计模式灵活运用以及对 Java 技术的高深造诣。Spring 框架源码无疑是 Java 技术的最佳实践范例。如果想在短时间内迅速提高自己的 Java 技术水平和应用开发水平，学习和研究 Spring 源码将会使你收到意想不到的效果。
+
+### 20.1.3 Spring 组成
+
+![Spring组成](../resources/images/Spring模块.png)
 
 ## 20.2 IOC 容器
 
-IOC 即控制反转，降低代码耦合度，把对象的创建和调用，交给 Spring 进行管理，
+IOC 即控制反转，降低代码耦合度，把对象的创建、管理和装配，交给 Spring 进行管理。
+
+![Spring IoC Container](../resources/images/Spring%20IoC%20container.png)
 
 ### 20.2.1 IOC 底层原理
 
@@ -59,16 +66,11 @@ IOC 思想甚于 IOC 容器完成，IOC 容器底层就是对象工厂，Spring 
 
     加载配置文件时即创建对象。
 
-### 20.2.2 BeanFactory 接口
+### 20.2.2 xml 方式 Bean 管理
 
-### 20.2.3 IOC 操作 Bean 管理
+Bean 管理一般有两个操作：创建对象和注入属性。
 
-1.  什么是 Bean 管理
-    Bean 管理一般有两个操作：创建对象和注入属性。
-
-2.  xml 文件方式 Bean 管理操作
-
--   创建对象：
+1.  创建对象：
 
     ```xml
     <bean id="hello" class="HelloSpring"></bean>
@@ -77,174 +79,182 @@ IOC 思想甚于 IOC 容器完成，IOC 容器底层就是对象工厂，Spring 
     -   id 对象标识
     -   class 类路径
 
-    创建对象时默认使用类的无参构造器。
+    **创建对象时默认使用类的无参构造器。**
 
--   注入属性：
+2.  注入属性：
 
     DI(dependency injection)：依赖注入就是注入属性，可以使用 set 方法注入或有参构造方法注入。
 
     -   set 方法注入
 
-    ```xml
-    <bean id="" class="">
-        <property name="" value=""></property>
-    </bean>
-    ```
-
-    -   有参构造方法注入
-
-    ```xml
-    <bean id="" class="">
-        <constructor-arg name="" value=""></constructor-arg>
-    </bean>
-    ```
-
-    -   外部 Bean
-
-    ```xml
-    <bean id="userDAOImpl" class="UserDAOImpl"></bean>
-    <bean id="userService" class="UserService">
-        <property name="userDAO" value="userDAOImpl"></property>
-    </bean>
-    ```
-
-    -   集合属性
-
-    ```xml
-    <bean id="student" class="Student">
-        <!--数组类型属性注入-->
-        <property name="courses">
-            <array>
-                <value>Java</value>
-                <value>JavaScript</value>
-                <value>Python</value>
-                <value>数据库</value>
-            </array>
-        </property>
-        <property name="books">
-            <list>
-                <value>Core Java</value>
-                <value>ProfessionalJavaScriptforWebDevelopers</value>
-                <value>PythonCrashCourse</value>
-            </list>
-        </property>
-        <property name="scores">
-            <map>
-                <entry key="Programming" value="98"></entry>
-                <entry key="OperatingSystem" value="86"></entry>
-            </map>
-        </property>
-    </bean>
-    ```
-
--   IOC 操作 Bean 管理
-
-    Spring 有两种类型的 Bean，一种是普通 Bean，另一种是工厂 Bean（即 FactoryBean)。
-
-    -   普通 Bean
-
-        在配置文件中定义的 bean 类型就是返回类型。
-
-    -   工厂 Bean
-
-        配置文件定义的 Bean 类型可以和返回值类型不一致。
-
-        -   步骤 1:创建类，实现 FactoryBean 接口；
-        -   步骤 2:实现接口的方法，在实现中定义返回的 bean 类型。
-
-    -   Bean 作用域
-
-        在 Spring 中，设置创建 Bean 实例是单实例还是多实例，可以通过 scope 属性进行设置。
-
-        -   singleton 为单实例（默认），加载 Spring 配置文件时就会创建单实例对象；
-        -   prototype 为多实例，在调用 getBean 方法时创建多实例对象。
-
-    -   Bean 生命周期
-
-        -   通过构造器创建 Bean 实例（无参数构造器）；
-        -   为 Bean 的属性设置值和对其他 Bean 引用（调用 set 方法）；
-        -   调用 Bean 的初始化方法；
-        -   Bean 可以使用（对象获取）；
-        -   关闭容器时，调用 Bean 的销毁方法（需要进行配置销毁方法）。
-
-        ```java
-        public class Orders {
-            private String oname;
-
-            public Orders() {
-                System.out.println("步骤1：执行无参构造器创建Bean实例");
-            }
-
-            public void setOname(String oname) {
-                this.oname = oname;
-                System.out.println("步骤2：调用属性set方法设置对应值");
-            }
-
-            //创建执行的初始化方法
-            public void init() {
-                System.out.println("步骤3：执行初始化方法");
-            }
-
-            //创建执行的销毁方法
-            public void destroy() {
-                System.out.println("步骤5：执行销毁方法");
-            }
-        }
-        ```
-
         ```xml
-        <bean id="orders" class="Orders" init-method="init"
-            destroy-method="destroy">
-            <property name="oname" value="Cellphone"></property>
+        <bean id="" class="">
+            <property name="" value=""></property>
         </bean>
         ```
 
-        ```java
-        public class OrdersTest {
-            @Test
-            public void testOrders() {
-                // 1. 加载配置文件
-                ApplicationContext context =
-                        new ClassPathXmlApplicationContext("beans.xml");
+    -   有参构造方法注入
 
-                // 2. 获取配置创建的对象
-                Orders orders = context.getBean("orders", Orders.class);
-
-                System.out.println("步骤4：获取创建的Bean实例对象");
-                System.out.println(orders);
-
-                ((ClassPathXmlApplicationContext)context).close();
-            }
-        }
+        ```xml
+        <bean id="" class="">
+            <constructor-arg name="" value=""></constructor-arg>
+        </bean>
         ```
 
--   自动装配
+    -   外部 Bean
 
-Spring 根据指定的装配规则（属性名或属性类型）自动注入匹配的属性值。
+        ```xml
+        <bean id="userDAOImpl" class="UserDAOImpl"></bean>
+        <bean id="userService" class="UserService">
+            <property name="userDAO" value="userDAOImpl"></property>
+        </bean>
+        ```
 
-通过 bean 标签中的 autowire 属性进行配置，byName 指根据属性名注入，byType 指根据属性类型注入。
+    -   集合属性
 
--   外部属性文件
+        ```xml
+        <bean id="student" class="Student">
+            <!--数组类型属性注入-->
+            <property name="courses">
+                <array>
+                    <value>Java</value>
+                    <value>JavaScript</value>
+                    <value>Python</value>
+                    <value>数据库</value>
+                </array>
+            </property>
+            <property name="books">
+                <list>
+                    <value>Core Java</value>
+                    <value>ProfessionalJavaScriptforWebDevelopers</value>
+                    <value>PythonCrashCourse</value>
+                </list>
+            </property>
+            <property name="scores">
+                <map>
+                    <entry key="Programming" value="98"></entry>
+                    <entry key="OperatingSystem" value="86"></entry>
+                </map>
+            </property>
+        </bean>
+        ```
 
-    -   创建外部`.properties`属性文件;
-    -   将外部属性文件引入到 Spring 配置文件中；
-        -   引入 context 名称空间
-        -   在 Spring 配置文件使用标签引入外部属性文件
+    -   p 命名空间
 
-3. 注解方式 Bean 管理
+        ```xml
+        <beans xmlns="http://www.springframework.org/schema/beans"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns:p="http://www.springframework.org/schema/p"
+            xsi:schemaLocation="http://www.springframework.org/schema/beans
+                https://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    代码中特殊的标记。
+            <bean name="john-classic" class="com.example.Person">
+                <property name="name" value="John Doe"/>
+                <property name="spouse" ref="jane"/>
+            </bean>
 
-    注解可以简化 xml 文件配置。
+            <bean name="john-modern"
+                class="com.example.Person"
+                p:name="John Doe"
+                p:spouse-ref="jane"/>
 
--   创建对象
+            <bean name="jane" class="com.example.Person">
+                <property name="name" value="Jane Doe"/>
+            </bean>
+        </beans>
+        ```
+
+        **使用前需要导入 xml 约束。**
+
+    -   c 命名空间
+
+        ```xml
+        <beans xmlns="http://www.springframework.org/schema/beans"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns:c="http://www.springframework.org/schema/c"
+            xsi:schemaLocation="http://www.springframework.org/schema/beans
+                https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+            <bean id="beanTwo" class="x.y.ThingTwo"/>
+            <bean id="beanThree" class="x.y.ThingThree"/>
+
+            <!-- traditional declaration with optional argument names -->
+            <bean id="beanOne" class="x.y.ThingOne">
+                <constructor-arg name="thingTwo" ref="beanTwo"/>
+                <constructor-arg name="thingThree" ref="beanThree"/>
+                <constructor-arg name="email" value="something@somewhere.com"/>
+            </bean>
+
+            <!-- c-namespace declaration with argument names -->
+            <bean id="beanOne" class="x.y.ThingOne" c:thingTwo-ref="beanTwo"
+                c:thingThree-ref="beanThree" c:email="something@somewhere.com"/>
+        </beans>
+        ```
+
+        **使用前需要导入 xml 约束。**
+
+3.  Bean 自动装配
+
+    Spring 根据指定的装配规则（属性名或属性类型）自动注入匹配的属性值。
+
+    通过 bean 标签中的 autowire 属性进行配置。
+
+    -   byName
+
+        根据属性名注入。
+
+    -   byType
+
+        根据属性类型注入（必须保证全局类型唯一）。
+
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <beans xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+            https://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context
+            https://www.springframework.org/schema/context/spring-context.xsd">
+
+        <context:annotation-config/>
+        <bean id="employee" class="pojo.Employee"/>
+    </beans>
+    ```
+
+4.  外部属性文件
+
+    创建外部`.properties`属性文件;
+    将外部属性文件引入到 Spring 配置文件中；
+
+    -   引入 context 名称空间
+    -   在 Spring 配置文件使用标签引入外部属性文件
+
+### 20.2.3 注解方式 Bean 管理
+
+注解是代码中特殊的标记，可以简化 xml 文件配置。
+
+**使用注解生效，必须开启注解的支持。**
+
+1.  创建对象
 
     常用注解：
 
     -   @Component
+
+        组件注解 ，配置在类上，表明该类已被 Spring 管理。
+
     -   @Service
+
+        应用在 Service 层的类。
+
     -   @Controller
+
+        应用在 Controller 层的类。
+
     -   @Repository
+
+        应用在 DAO 层的类。
 
     方法步骤：
 
@@ -252,7 +262,7 @@ Spring 根据指定的装配规则（属性名或属性类型）自动注入匹�
     -   开启组件扫描
     -   创建类，在类上添加创建对象注解
 
--   注入属性
+2.  注入属性
 
     常用注解：
 
@@ -261,48 +271,289 @@ Spring 根据指定的装配规则（属性名或属性类型）自动注入匹�
     -   @Resource，可根据属性名称，也可根据属性类型（非 Spring 原生，不建议使用）
     -   @Value，向普通属性注入值
 
-4. 纯注解开发
+3.  xml 与注解最佳实践
 
-    方法步骤：
+    -   xml 用来管理 bean
+    -   注解只负责完成属性的注入
 
-    - 创建配置类，替代 xml 配置文件
-    - 编写测试类
+4.  完全注解开发
+
+    添加配置类，使用`@Configuration`注解标注，表明该类是一个配置类。
+
+    配置类：
+
+    ```java
+    @Configuration
+    public class AppConfig {
+        @Bean
+        public User user() {
+            return new User();
+        }
+    }
+    ```
+
+    测试类：
+
+    ```java
+    public class AppConfigTest {
+        @Test
+        public void testAppConfig() {
+            ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+            User user = context.getBean("user", User.class);
+            System.out.println(user);
+        }
+    }
+    ```
+
+### 20.2.4 Bean 作用域
+
+Spring 有两种类型的 Bean，一种是普通 Bean，另一种是工厂 Bean（即 FactoryBean)。
+
+1.  普通 Bean
+
+    在配置文件中定义的 bean 类型就是返回类型。
+
+2.  工厂 Bean
+
+    配置文件定义的 Bean 类型可以和返回值类型不一致。
+
+    -   步骤 1:创建类，实现 FactoryBean 接口；
+    -   步骤 2:实现接口的方法，在实现中定义返回的 bean 类型。
+
+3.  Bean 作用域
+
+    在 Spring 中，设置创建 Bean 实例是单实例还是多实例，可以通过 scope 属性进行设置。
+
+    -   singleton 为单实例（默认）
+
+        加载 Spring 配置文件时就会创建单实例对象。
+
+        ![singleton](../resources/images/singleton-scope.png)
+
+    -   prototype 为多实例
+
+        在调用 getBean 方法时创建多实例对象。
+
+        ![prototype](../resources/images/prototype-scope.png)
+
+4.  Bean 生命周期
+
+    -   通过构造器创建 Bean 实例（无参数构造器）；
+    -   为 Bean 的属性设置值和对其他 Bean 引用（调用 set 方法）；
+    -   调用 Bean 的初始化方法；
+    -   Bean 可以使用（对象获取）；
+    -   关闭容器时，调用 Bean 的销毁方法（需要进行配置销毁方法）。
+
+    ```java
+    public class Orders {
+        private String oname;
+
+        public Orders() {
+            System.out.println("步骤1：执行无参构造器创建Bean实例");
+        }
+
+        public void setOname(String oname) {
+            this.oname = oname;
+            System.out.println("步骤2：调用属性set方法设置对应值");
+        }
+
+        //创建执行的初始化方法
+        public void init() {
+            System.out.println("步骤3：执行初始化方法");
+        }
+
+        //创建执行的销毁方法
+        public void destroy() {
+            System.out.println("步骤5：执行销毁方法");
+        }
+    }
+    ```
+
+    ```xml
+    <bean id="orders" class="Orders" init-method="init"
+        destroy-method="destroy">
+        <property name="oname" value="Cellphone"></property>
+    </bean>
+    ```
+
+    ```java
+    public class OrdersTest {
+        @Test
+        public void testOrders() {
+            // 1. 加载配置文件
+            ApplicationContext context =
+                    new ClassPathXmlApplicationContext("beans.xml");
+
+            // 2. 获取配置创建的对象
+            Orders orders = context.getBean("orders", Orders.class);
+
+            System.out.println("步骤4：获取创建的Bean实例对象");
+            System.out.println(orders);
+
+            ((ClassPathXmlApplicationContext)context).close();
+        }
+    }
+    ```
 
 ## 20.3 AOP
 
 ### 20.3.1 AOP 概述
 
-AOP 即 Aspect Oriented Programming，面向切面编程，是通过预编译方式和运行期间动态代理实现程序功能的统一维护的一种技术。AOP 是 OOP 的延续，是软件开发中的一个热点，也是 Spring 框架中的一个重要内容，是函数式编程的一种衍生范型。利用 AOP 可以对业务逻辑的各个部分进行隔离，从而使得业务逻辑各部分之间的耦合度降低，提高程序的可重用性，同时提高了开发的效率。
+AOP 即 Aspect Oriented Programming，面向切面编程，是通过预编译方式和运行期间动态代理实现程序功能的统一维护的一种技术。
 
-1. AOP 底层原理
+AOP 是 OOP 的延续，是软件开发中的一个热点，也是 Spring 框架中的一个重要内容，是函数式编程的一种衍生范型。
 
-AOP 底层采用动态代理，区分两种情况
+利用 AOP 可以对业务逻辑的各个部分进行隔离，从而使得业务逻辑各部分之间的耦合度降低，提高程序的可重用性，同时提高了开发的效率。
 
--   有接口时，使用 JDK 动态代理，创建接口实现类的代理对象，增强类的方法。
+### 20.3.2 AOP 原理
 
--   没有接口时，使用 CGLIB 动态代理，创建子类的代理对象，增强类的方法。
+1. 代理模式
 
-2. AOP 术语
+    - 角色分析：
 
--   连接点
+        - 抽象角色：一般使用接口或抽象类来解决
+        - 真实角色：被代理的角色
+        - 代理角色：代理真实角色，代理后一般会做一些附属操作
+        - 客户：访问代理对象
 
-    类中可以被增强的方法。
+    - 静态代理
+    - 动态代理
 
--   切入点
+        动态代理分为两大类：甚于接口的动态代理和甚于类的动态代理。
 
-    实际被增强的方法称为切入点。
+        - 甚于接口：JDK 动态代理
+        - 甚于类：cglib
 
--   通知（增强）
+2. AOP 底层原理
 
-    实际增强的逻辑部分即为通知。通知有多种类型，前置通知、后置通知、环绕通知、异常通知、最终通知。
+    AOP 底层采用动态代理，区分两种情况
 
--   切面
+    - 有接口时，使用 JDK 动态代理，创建接口实现类的代理对象，增强类的方法。
 
-    把通知应用到切入点的过程即为切面。
+    - 没有接口时，使用 CGLIB 动态代理，创建子类的代理对象，增强类的方法。
 
-3. AOP 操作
+3. AOP 术语
 
-Spring 框架中一般甚于 AspectJ 实现 AOP 操作，甚于 AspectJ 实现 AOP 操作有甚于 xml 配置文件和注解两种方式。
+    - 横切关注点
+
+        跨越应用程序多个模块的方法或功能，即与业务逻辑无关但需要关注的部分，如日志、安全、缓存、事务等。
+
+    - 连接点
+
+        类中可以被增强的方法。
+
+    - 切入点
+
+        实际被增强的方法称为切入点。
+
+    - 通知（增强）
+
+        实际增强的逻辑部分即为通知。通知有多种类型，前置通知、后置通知、环绕通知、异常通知、最终通知。
+
+    - 切面
+
+        把通知应用到切入点的过程即为切面。
+
+### 20.3.3 AOP 基于 xml 配置文件实现
+
+Spring 框架中一般甚于 AspectJ 实现 AOP 操作，甚于 AspectJ 实现 AOP 操作有基于 xml 配置文件和注解两种方式。
+
+1. 实现接口
+
+    ```java
+    public interface UserService {
+        void add();
+        void update();
+        void query();
+        void remove();
+    }
+    ```
+
+    接口实现：
+
+    ```java
+    public class UserServiceImpl implements UserService{
+        @Override
+        public void add() {
+            System.out.println("add user");
+        }
+
+        @Override
+        public void update() {
+            System.out.println("update user");
+        }
+
+        @Override
+        public void query() {
+            System.out.println("query user");
+        }
+
+        @Override
+        public void remove() {
+            System.out.println("remove user");
+        }
+    }
+    ```
+
+2. 实现 AOP 接口
+
+    ```java
+    public class BeforeLog implements MethodBeforeAdvice {
+        @Override
+        public void before(Method method, Object[] args, Object target) throws Throwable {
+            System.out.println(target.getClass().getName() + " -> " + method.getName() + " is running");
+        }
+    }
+    ```
+
+    ```java
+    public class AfterLog implements AfterReturningAdvice {
+        @Override
+        public void afterReturning(Object returnValue, Method method, Object[] args, Object target) throws Throwable {
+            System.out.println(method.getName() + " finished, result is " + returnValue);
+        }
+    }
+    ```
+
+3. applicationContext 中配置
+
+    ```xml
+    <bean id="userService" class="service.UserServiceImpl"/>
+    <bean id="beforeLog" class="log.BeforeLog"/>
+    <bean id="afterLog" class="log.AfterLog"/>
+
+    <!-- 使用Spring API接口 -->
+    <aop:config>
+        <!-- 配置切入点 -->
+        <aop:pointcut id="pointcut" expression="execution(* service.UserServiceImpl.*(..))"/>
+        <!-- 配置环绕增强 -->
+        <aop:advisor advice-ref="beforeLog" pointcut-ref="pointcut"/>
+        <aop:advisor advice-ref="afterLog" pointcut-ref="pointcut"/>
+    </aop:config>
+    ```
+
+4. 测试
+
+    ```java
+    @TestInstance(TestInstance.Lifecycle.PER_CLASS)
+    public class LogTest {
+        private ApplicationContext context;
+        @BeforeAll
+        public void getApplicationContext() {
+            context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        }
+
+        @Test
+        public void testLogPointCut() {
+            UserService userService = (UserService) context.getBean("userService");
+            System.out.println(userService);
+            userService.add();
+            userService.update();
+        }
+    }
+    ```
+
+### 20.3.4 AOP 基于注解实现
 
 -   切入点表达式
 
@@ -448,6 +699,17 @@ Spring 对 JDBC 进行了封装
         - 配置事务管理器
         - 配置通知
         - 配置切入点和切面
+
+    ```xml
+    <!--创建事务管理器-->
+    <bean id="transactionManager"
+          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <!--注入数据源-->
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+    <!--开启事务注解-->
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+    ```
 
 4. 完全注解开发
 

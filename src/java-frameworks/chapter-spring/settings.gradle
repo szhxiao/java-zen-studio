@@ -1,0 +1,9 @@
+rootProject.name = 'chapter-spring'
+include 'hello-spring'
+include 'ioc'
+include 'annotation'
+include 'aop'
+include 'transaction'
+include 'jdbctemplate'
+include 'newfeatures'
+
