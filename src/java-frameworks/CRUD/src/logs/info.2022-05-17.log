@@ -1,0 +1,4 @@
+2022-05-17 at 09:13:04 CST WARN  net.sf.ehcache.DiskStorePathManager.resolveAndLockIfNeeded @162 :-> diskStorePath '/tmp/ehcache' is already used by an existing CacheManager either in the same VM or in a different process.
+The diskStore path for this CacheManager will be set to /tmp/ehcache/ehcache_auto_created4727418864569674102diskstore.
+To avoid this warning consider using the CacheManager factory methods to create a singleton CacheManager or specifying a separate ehcache configuration (ehcache.xml) for each CacheManager instance.
+2022-05-17 at 09:13:05 CST INFO  com.alibaba.druid.pool.DruidDataSource.init @998 :-> {dataSource-1} inited

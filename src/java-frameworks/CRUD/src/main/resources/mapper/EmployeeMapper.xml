@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.kunlun.crud.dao.EmployeeMapper">
+    <!-- <cache></cache> -->
+    <cache type="org.mybatis.caches.ehcache.EhcacheCache"/>
+
+    <!--
+    // 分步查询所用结果集
+    <resultMap id="employeeResult" type="org.kunlun.crud.pojo.Employee">
+        <id column="pk_emp_id" property="empId"/>
+        <result column="emp_name" property="empName"/>
+        <result column="gender" property="gender"/>
+        <result column="email" property="email"/>
+        <association property="department"
+                     select="org.kunlun.crud.dao.DepartmentMapper.getDepartmentById" column="dept_id"></association>
+    </resultMap>
+    -->
+
+    <resultMap id="employeeResult" type="org.kunlun.crud.pojo.Employee">
+        <id column="pk_emp_id" property="empId"/>
+        <result column="emp_name" property="empName"/>
+        <result column="gender" property="gender"/>
+        <result column="email" property="email"/>
+        <association property="department"
+                     javaType="org.kunlun.crud.pojo.Department">
+            <id column="dept_id" property="deptId"/>
+            <result column="uk_dept_name" property="deptName"/>
+        </association>
+    </resultMap>
+    
+    <sql id="selectColumn">
+        `pk_emp_id` empId, `emp_name` empName, `gender`, `email`, `dept_id`
+    </sql>
+
+
+    <!--
+    // 分步查询
+    // 使用ajax请求时，json返回数据尾部多出,"handler"字符串，导致解析失败
+    <select id="getEmployeeById" resultMap="employeeResult">
+        SELECT `pk_emp_id`, `emp_name`, `gender`, `email`, `dept_id`
+        FROM `t_employee` te WHERE `pk_emp_id` = #{empId}
+    </select>
+    -->
+    <select id="getEmployeeById" resultType="org.kunlun.crud.pojo.Employee">
+        SELECT te.pk_emp_id, te.emp_name, te.gender, te.email, te.dept_id
+        FROM t_employee te
+        LEFT JOIN t_department td
+        ON te.dept_id = td.pk_dept_id
+        WHERE `pk_emp_id` = #{empId}
+    </select>
+    <!--
+    <select id="getEmployeeById" resultMap="employeeResult">
+        SELECT te.pk_emp_id, te.emp_name, te.gender, te.email,
+        te.dept_id,td.uk_dept_name
+        FROM t_employee te
+        LEFT JOIN t_department td
+        ON te.dept_id = td.pk_dept_id
+        WHERE `pk_emp_id` = #{empId}
+    </select> -->
+
+    <select id="getEmployeeByName" resultMap="employeeResult">
+        SELECT te.pk_emp_id, te.emp_name, te.gender, te.email,
+        te.dept_id,td.uk_dept_name
+        FROM t_employee te
+        LEFT JOIN t_department td
+        ON te.dept_id = td.pk_dept_id
+        WHERE `emp_name` = #{empName}
+    </select>
+
+    <select id="listEmployeesByName" resultMap="employeeResult">
+        SELECT `pk_emp_id`, `emp_name`, `gender`, `email`, `dept_id`
+        FROM `t_employee` te WHERE `emp_name` LIKE #{empName}
+    </select>
+
+    <!--
+    // 分步查询
+    <select id="listEmployees" resultMap="employeeResult">
+        SELECT `pk_emp_id`, `emp_name`, `gender`, `email`, `dept_id`
+        FROM `t_employee` te
+    </select>
+    -->
+    <select id="listEmployees" resultMap="employeeResult">
+        SELECT te.pk_emp_id, te.emp_name, te.gender, te.email,
+        te.dept_id,td.uk_dept_name
+        FROM t_employee te LEFT JOIN t_department td
+        ON te.dept_id = td.pk_dept_id
+    </select>
+
+    <insert id="insertEmployee" useGeneratedKeys="true"
+            keyProperty="empId">
+        INSERT INTO `t_employee`(`emp_name`,`gender`,`email`,`dept_id`)
+        VALUES (#{empName}, #{gender}, #{email}, #{deptId})
+    </insert>
+
+    <update id="updateEmployee">
+        UPDATE `t_employee`
+        <set>
+            <if test="empName != null and empName != ''">
+                `emp_name` = #{empName},
+            </if>
+            <if test="gender != null">
+                `gender` = #{gender},
+            </if>
+            <if test="email != null and email.trim() != ''">
+                `email` = #{email},
+            </if>
+            <if test="deptId != null">
+                `dept_id` = #{deptId},
+            </if>
+            <!-- <if test="department != null"> -->
+            <!--     `dept_id` = #{department.deptId}, -->
+            <!-- </if> -->
+        </set>
+        WHERE `pk_emp_id` = #{empId}
+    </update>
+
+    <delete id="deleteEmployee">
+        DELETE FROM `t_employee` WHERE `pk_emp_id` = #{empId}
+    </delete>
+
+    <delete id="deleteEmployeeBatch" parameterType="Integer">
+        DELETE FROM `t_employee` WHERE `pk_emp_id` IN
+        <foreach item="empId" collection="array" open="(" separator="," close=")">
+            #{empId}
+        </foreach>
+    </delete>
+
+</mapper>
