@@ -1,0 +1,19 @@
+plugins {
+    id("java")
+}
+
+group = "org.yaoguang.springboot"
+version = "1.0-SNAPSHOT"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-amqp', version: '2.7.7'
+
+}
+
+tasks.test {
+    useJUnitPlatform()
+}

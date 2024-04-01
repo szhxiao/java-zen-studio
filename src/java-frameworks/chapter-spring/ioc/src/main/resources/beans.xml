@@ -4,6 +4,10 @@
         xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <bean id="user" class="pojo.User">
+        <property name="name" value="毛姆"/>
+    </bean>
+
     <bean id="employee" class="pojo.Employee">
         <!--有参构造注入属性-->
         <constructor-arg name="name" value="蓝玉"/>

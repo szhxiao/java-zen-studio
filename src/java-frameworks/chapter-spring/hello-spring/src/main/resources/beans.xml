@@ -4,6 +4,8 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="hello" class="HelloSpring"></bean>
+    <bean id="hello" class="HelloSpring">
+        <!-- <property name="str" value="Spring"/> -->
+    </bean>
 
 </beans>

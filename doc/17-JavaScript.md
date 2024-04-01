@@ -110,3 +110,7 @@ var objectName = {
 ## 17.5 DOM 模型
 
 ### 17.5.1 Document 对象
+
+## 17.6 JSON
+
+JSON 即 JavaScript Object Notation, JS 对象标记，是一种轻量级的数据交换格式。
