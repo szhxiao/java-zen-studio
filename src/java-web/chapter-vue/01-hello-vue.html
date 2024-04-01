@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <!-- 开发版 -->
+        <script src="https://unpkg.com/vue@2/dist/vue.js"></script>
+        <!-- 生产版 -->
+        <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2"></script> -->
+        <!-- <script src="https://unpkg.com/vue@2"></script> -->
+        <title>hello-vue</title>
+    </head>
+    <body>
+        <!-- 容器与实例一一对应 -->
+        <div id="app">
+            <!-- {{内容只能是js表达式}} -->
+            <h1>{{ message }}</h1>
+        </div>
+
+        <script>
+            var vm = new Vue({
+                // el用于指定当前Vue实例为哪个容器服务，值通常为css选择器字符
+                el: "#app",
+                // data用于存储数据，数据供el所指定的容器使用
+                data: {
+                    message: "Hello Vue!"
+                }
+            });
+        </script>
+    </body>
+</html>

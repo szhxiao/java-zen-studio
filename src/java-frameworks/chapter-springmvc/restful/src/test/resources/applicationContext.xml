@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- <context:annotation-config/> -->
+
+    <!-- <context:component-scan base-package="restful"/> -->
+
+    <!--属性文件配置数据库连接池-->
+    <!--引入外部属性文件-->
+    <context:property-placeholder
+            location="classpath:druid.properties"></context:property-placeholder>
+    <!--配置数据库连接池配置文件-->
+    <bean id="druidConfig"
+          class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
+        <property name="location" value="classpath:druid.properties"></property>
+    </bean>
+    <!--数据库连接信息配置-->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="driverClassName"
+                  value="${jdbc.driverClassName}"></property>
+        <property name="url" value="${jdbc.url}"></property>
+        <property name="username" value="${jdbc.username}"></property>
+        <property name="password" value="${jdbc.password}"></property>
+    </bean>
+
+    <!--JdbcTemplate对象-->
+    <bean id="jdbcTemplate"
+          class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+
+    <!--
+    <bean id="user" class="restful.pojo.User"/>
+    <bean id="userDAO" class="restful.dao.UserDAOImpl"/>
+    <bean id="userService" class="restful.service.UserService"/>
+    <bean id="userController" class="restful.controller.UserController"/>
+    -->
+
+</beans>

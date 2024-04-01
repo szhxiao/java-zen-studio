@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.DeptMapper">
+
+    <resultMap id="deptResultMap" type="department">
+        <!-- column对应数据库中的字段，property对应实体类中的字段 -->
+        <result column="pk_id" property="id"/>
+        <result column="uk_dept_name" property="departmentName"/>
+    </resultMap>
+
+    <select id="getAllDepartments" resultMap="deptResultMap">
+        SELECT * FROM `dept`
+    </select>
+
+    <select id="getDepartmentById" resultMap="deptResultMap">
+        SELECT * FROM `dept` WHERE pk_id = #{id}
+    </select>
+
+    <resultMap id="userResultMap" type="user">
+        <result column="user_id" property="id"/>
+        <result column="uk_uname" property="uname"/>
+        <result column="password" property="password"/>
+        <result column="email" property="email"/>
+        <association property="department" javaType="department">
+            <result column="dept_id" property="id"/>
+            <result column="dept_name" property="departmentName"/>
+        </association>
+    </resultMap>
+
+    <select id="getUsersOfDepartment" resultMap="userResultMap">
+        SELECT td.pk_id dept_id, td.uk_dept_name dept_name,
+        tu.pk_id user_id, tu.uk_uname uk_uname, tu.password password, tu.email email
+        FROM dept td LEFT JOIN user tu
+        ON td.pk_id = tu.dept_id
+        WHERE td.pk_id=#{id}
+    </select>
+    
+    
+</mapper>

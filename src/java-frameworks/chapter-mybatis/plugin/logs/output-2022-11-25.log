@@ -1,0 +1,4 @@
+18:45:23.540 [Test worker] DEBUG dao.UserMapper - Cache Hit Ratio [dao.UserMapper]: 0.0
+18:45:23.718 [Test worker] DEBUG dao.UserMapper.getAllUsers - ==>  Preparing: SELECT `pk_id` id, `uk_uname` uname, `password`, `email` FROM user
+18:45:23.734 [Test worker] DEBUG dao.UserMapper.getAllUsers - ==> Parameters: 
+18:45:23.751 [Test worker] DEBUG dao.UserMapper.getAllUsers - <==      Total: 6

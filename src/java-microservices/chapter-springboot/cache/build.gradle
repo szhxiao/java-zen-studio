@@ -1,0 +1,22 @@
+plugins {
+    id 'java'
+}
+
+group 'org.yaoguang.springboot'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-redis', version: '2.7.7'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-jdbc', version: '2.7.7'
+    implementation group: 'org.mybatis.spring.boot', name: 'mybatis-spring-boot-starter', version: '3.0.1'
+    implementation group: 'com.alibaba', name: 'druid-spring-boot-starter', version: '1.2.15'
+    implementation group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '3.1.0'
+}
+
+test {
+    useJUnitPlatform()
+}

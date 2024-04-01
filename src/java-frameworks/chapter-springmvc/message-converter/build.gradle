@@ -1,0 +1,20 @@
+plugins {
+    id 'java'
+}
+
+group 'org.yaoguang.springmvc'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation group: 'commons-fileupload', name: 'commons-fileupload', version: '1.4'
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.14.1'
+
+}
+
+test {
+    useJUnitPlatform()
+}

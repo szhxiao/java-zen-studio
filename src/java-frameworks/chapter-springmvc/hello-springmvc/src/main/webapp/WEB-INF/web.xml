@@ -1,0 +1,22 @@
+<!DOCTYPE web-app PUBLIC
+        "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+        "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+    <!--配置SpringMVC的前端控制器，对浏览器发送的请求进行统一处理-->
+    <servlet>
+        <servlet-name>hello-springmvc</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:springmvc.xml</param-value>
+        </init-param>
+        <!--将前端控制器DispatcherServlet的初始化时间提前到服务器启动时-->
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>hello-springmvc</servlet-name>
+        <!-- /只匹配所有请求，不会匹配页面，/*匹配所有请求，包括页面 -->
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+</web-app>

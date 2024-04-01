@@ -1,0 +1,18 @@
+plugins {
+    id 'java-library'
+    id 'org.springframework.boot' version '2.7.7'
+}
+
+group 'org.yaoguang.springboot'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+}
+
+test {
+    useJUnitPlatform()
+}

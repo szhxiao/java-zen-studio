@@ -1,0 +1,26 @@
+16:43:39.652 [Test worker] DEBUG dao.UserMapper - Cache Hit Ratio [dao.UserMapper]: 0.0
+16:43:39.832 [Test worker] DEBUG dao.UserMapper.getAllUsers - ==>  Preparing: SELECT `pk_id` id, `uk_uname` uname, `password`, `email` FROM user
+16:43:39.849 [Test worker] DEBUG dao.UserMapper.getAllUsers - ==> Parameters: 
+16:43:39.862 [Test worker] DEBUG dao.UserMapper.getAllUsers - <==      Total: 6
+16:43:39.866 [Test worker] INFO  dao.UserMapperTest - [pojo.User{1, lina, ok, lina@sina.com.cn}, pojo.User{2, kate, ok, hello_kate@126.com}, pojo.User{3, jiuer, ok, jiuer@126.com}, pojo.User{4, 矛盾, maodun, maodun@126.com}, pojo.User{5, 路遥, luyao, luyao@163.com}, pojo.User{6, 余华, yuhua, yuhua@126.com}]
+16:43:59.220 [Test worker] DEBUG dao.UserMapper - Cache Hit Ratio [dao.UserMapper]: 0.0
+16:43:59.396 [Test worker] DEBUG dao.UserMapper.getUserById - ==>  Preparing: SELECT `pk_id` id, `uk_uname` uname, `password`, `email` FROM user WHERE pk_id = ?
+16:43:59.415 [Test worker] DEBUG dao.UserMapper.getUserById - ==> Parameters: 1(Integer)
+16:43:59.428 [Test worker] DEBUG dao.UserMapper.getUserById - <==      Total: 1
+16:43:59.432 [Test worker] INFO  dao.UserMapperTest - pojo.User{1, lina, ok, lina@sina.com.cn}
+16:43:59.432 [Test worker] DEBUG dao.UserMapper - Cache Hit Ratio [dao.UserMapper]: 0.0
+16:43:59.434 [Test worker] INFO  dao.UserMapperTest - user == user2: true
+16:46:20.883 [Test worker] DEBUG dao.UserMapper - Cache Hit Ratio [dao.UserMapper]: 0.0
+16:46:21.053 [Test worker] DEBUG dao.UserMapper.getUserById - ==>  Preparing: SELECT `pk_id` id, `uk_uname` uname, `password`, `email` FROM user WHERE pk_id = ?
+16:46:21.070 [Test worker] DEBUG dao.UserMapper.getUserById - ==> Parameters: 1(Integer)
+16:46:21.083 [Test worker] DEBUG dao.UserMapper.getUserById - <==      Total: 1
+16:46:21.087 [Test worker] INFO  dao.UserMapperTest - pojo.User{1, lina, ok, lina@sina.com.cn}
+16:46:21.087 [Test worker] DEBUG dao.UserMapper - Cache Hit Ratio [dao.UserMapper]: 0.0
+16:46:21.088 [Test worker] INFO  dao.UserMapperTest - user == user2: true
+16:46:57.585 [Test worker] DEBUG dao.UserMapper - Cache Hit Ratio [dao.UserMapper]: 0.0
+16:46:57.763 [Test worker] DEBUG dao.UserMapper.getUserById - ==>  Preparing: SELECT `pk_id` id, `uk_uname` uname, `password`, `email` FROM user WHERE pk_id = ?
+16:46:57.779 [Test worker] DEBUG dao.UserMapper.getUserById - ==> Parameters: 1(Integer)
+16:46:57.793 [Test worker] DEBUG dao.UserMapper.getUserById - <==      Total: 1
+16:46:57.797 [Test worker] INFO  dao.UserMapperTest - pojo.User{1, lina, ok, lina@sina.com.cn}
+16:46:57.797 [Test worker] DEBUG dao.UserMapper - Cache Hit Ratio [dao.UserMapper]: 0.0
+16:46:57.799 [Test worker] INFO  dao.UserMapperTest - user == user2: true

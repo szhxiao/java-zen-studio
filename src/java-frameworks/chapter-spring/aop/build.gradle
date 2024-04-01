@@ -1,0 +1,19 @@
+plugins {
+    id 'java'
+}
+
+group 'org.yaoguang.spring'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // AOP依赖
+    implementation group: 'org.springframework', name: 'spring-aspects', version: '6.0.2'
+}
+
+test {
+    useJUnitPlatform()
+}

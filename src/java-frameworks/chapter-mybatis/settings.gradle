@@ -1,0 +1,8 @@
+rootProject.name = 'chapter-mybatis'
+include 'hello-mybatis'
+include 'config'
+include 'mapper'
+include 'dynamicsql'
+include 'cache'
+include 'plugin'
+

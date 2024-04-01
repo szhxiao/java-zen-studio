@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+    <head>
+        <meta charset="UTF-8" />
+        <title>客户信息</title>
+        <link rel="stylesheet" href="css/list.css" />
+        <script src="./js/list.js"></script>
+    </head>
+    <body>
+        <div id="div_container">
+            <p class="center f30">客户信息</p>
+            <div>
+                <form th:action="@{/list.do}" method="post">
+                    <input type="hidden" name="operator" value="search"/>
+                    请输入查询关键字：<input type="text" name="keyword"/>
+                    <input type="submit" value="查询" class="btn"/>
+                </form>
+            </div>
+            <div id="add_customer">
+                <a th:href="@{add.html}">添加新用户</a>
+            </div>
+            <table id="tb_customers">
+                <tr>
+                    <th>序号</th>
+                    <th>姓名</th>
+                    <th>邮箱</th>
+                    <th>生日</th>
+                    <th colspan="2">操作</th>
+                </tr>
+                <tr th:if="${#lists.isEmpty(session.customerList)}">
+                    <td>查询为空</td>
+                </tr>
+                <tr
+                    th:unless="${#lists.isEmpty(session.customerList)}"
+                    th:each="customer:${session.customerList}"
+                >
+                    <td th:text="${customer.id}"></td>
+                    <!--                <td><a th:text="${customer.name}" th:href="@{'/edit.do?cid='+customer.id}"></a></td>-->
+<!--                    <td>-->
+<!--                        <a-->
+<!--                            th:text="${customer.name}"-->
+<!--                            th:href="@{/edit.do(id=${customer.id})}"-->
+<!--                        ></a>-->
+<!--                    </td>-->
+                    <td th:text="${customer.name}">
+                    </td>
+                    <td th:text="${customer.email}"></td>
+                    <td th:text="${customer.birth}"></td>
+                    <td>
+<!--                        <img-->
+<!--                            src="./images/exit.png"-->
+<!--                            th:onclick="|deleteCustomer(${customer.id})|"-->
+<!--                        />-->
+                        <button
+                                th:onclick="|deleteCustomer(${customer.id})|"
+                        >删除</button>
+                    </td>
+                    <td>
+                        <a th:href="@{/edit.do(id=${customer.id})}">编辑</a>
+                    </td>
+                </tr>
+            </table>
+            <div id="footer">
+                <input type="button" class="btn" value="首 页"
+                       th:onclick="|page(1)|"
+                       th:disabled="${session.pageNo==1}"/>
+
+                <input type="button" class="btn" value="上一页"
+                       th:onclick="|page(${session.pageNo-1})|"
+                       th:disabled="${session.pageNo==1}"/>
+
+                <input type="button" class="btn" value="下一页"
+                       th:onclick="|page(${session.pageNo+1})|"
+                       th:disabled="${session.pageNo==session.pageCount}"/>
+
+                <input type="button" class="btn" value="尾  页"
+                       th:onclick="|page(${session.pageCount})|"
+                       th:disabled="${session.pageNo==session.pageCount}"/>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,20 @@
+plugins {
+    id 'java'
+}
+
+group 'org.yaoguang.mybatis'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation group: 'org.mybatis.caches', name: 'mybatis-caffeine', version: '1.0.0'
+    implementation group: 'com.github.pagehelper', name: 'pagehelper', version: '5.3.2'
+
+}
+
+test {
+    useJUnitPlatform()
+}

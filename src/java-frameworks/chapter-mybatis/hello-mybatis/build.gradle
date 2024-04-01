@@ -1,0 +1,18 @@
+plugins {
+    id 'java-library'
+}
+
+group 'org.yaoguang.mybatis'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+}
+
+test {
+
+}

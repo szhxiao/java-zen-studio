@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+    <head>
+        <meta charset="UTF-8" />
+        <title>添加客户信息</title>
+        <link rel="stylesheet" href="./css/add.css"></link>
+    </head>
+    <body>
+        <div id="div_container">
+<!--            <form th:action="@{/customer.do}" method="post">-->
+            <form action="customer.do" method="post">
+                <input type="hidden" name="operate" value="add"/>
+                序号：<input type="text" name="id" /><br/>
+                姓名：<input type="text" name="name" /><br/>
+                邮箱：<input type="text" name="email" /><br/>
+                生日：<input type="text" name="birth" /><br/>
+                <!--    照片：<input type="text" name="picture"><br/>-->
+                <input type="submit" value="添加" />
+            </form>
+        </div>
+    </body>
+</html>

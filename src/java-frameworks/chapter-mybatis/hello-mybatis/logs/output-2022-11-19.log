@@ -1,0 +1,10 @@
+20:44:37.379 [Test worker] INFO  dao.DatabaseOperateTest - pojo.User{1, lina, ok, lina@sina.com.cn}
+20:44:56.170 [Test worker] INFO  dao.DatabaseOperateTest - pojo.User{1, lina, ok, lina@sina.com.cn}
+21:06:46.364 [Test worker] INFO  dao.UserMapperTest - [pojo.User{1, lina, ok, lina@sina.com.cn}, pojo.User{2, kate, ok, hello_kate@126.com}, pojo.User{3, 鸠摩智, ok, jiujiu@126.com}]
+21:19:46.451 [Test worker] INFO  dao.UserMapperTest - [pojo.User{1, lina, ok, lina@sina.com.cn}, pojo.User{2, kate, ok, hello_kate@126.com}, pojo.User{3, 鸠摩智, ok, jiujiu@126.com}]
+21:20:21.098 [Test worker] INFO  dao.UserMapperTest - [pojo.User{1, lina, ok, lina@sina.com.cn}, pojo.User{2, kate, ok, hello_kate@126.com}, pojo.User{3, 鸠摩智, ok, jiujiu@126.com}]
+21:21:11.361 [Test worker] INFO  dao.UserMapperTest - [pojo.User{1, lina, ok, lina@sina.com.cn}, pojo.User{2, kate, ok, hello_kate@126.com}, pojo.User{3, 鸠摩智, ok, jiujiu@126.com}]
+21:23:27.446 [Test worker] INFO  dao.UserMapperTest - pojo.User{1, lina, ok, lina@sina.com.cn}
+21:25:33.762 [Test worker] INFO  dao.UserMapperTest - [pojo.User{1, lina, ok, lina@sina.com.cn}, pojo.User{2, kate, ok, hello_kate@126.com}, pojo.User{3, 鸠摩智, ok, jiujiu@126.com}, pojo.User{4, bilibili, bilibili, bilibili@163.com}]
+21:32:46.712 [Test worker] INFO  dao.UserMapperTest - [pojo.User{1, lina, ok, lina@sina.com.cn}, pojo.User{2, kate, ok, hello_kate@126.com}, pojo.User{3, jiuer, jiuer, jiuer@126.com}, pojo.User{4, bilibili, bilibili, bilibili@163.com}]
+21:36:23.583 [Test worker] INFO  dao.UserMapperTest - [pojo.User{1, lina, ok, lina@sina.com.cn}, pojo.User{2, kate, ok, hello_kate@126.com}, pojo.User{3, jiuer, jiuer, jiuer@126.com}]

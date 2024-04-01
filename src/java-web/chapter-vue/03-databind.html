@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <!-- 开发版 -->
+        <!-- <script src="https://unpkg.com/vue@2/dist/vue.js"></script> -->
+        <!-- 生产版 -->
+        <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2"></script> -->
+        <script src="https://unpkg.com/vue@2"></script>
+        <title>vue-command</title>
+    </head>
+    <body>
+        <!-- 容器与实例一一对应 -->
+        <div id="app">
+            <h1>{{course}}</h1>
+            <!-- 单向数据绑定 -->
+            单向数据绑定：
+            <!-- <input type="text" v-bind:value="name" /> -->
+            <input type="text" :value="name" />
+            <br />
+            双向数据绑定：
+            <!-- <input type="text" v-model:value="name" /> -->
+            <input type="text" v-model="name" />
+        </div>
+
+        <script>
+            var vm = new Vue({
+                el: "#app",
+                // data对象式写法
+                /*                 
+                data: {
+                    course: "数据绑定",
+                    name: "B站大学"
+                } 
+                */
+                // data函数式写法
+                /* 
+                data: function () {
+                    console.log("yaoguang", this);
+                    return {
+                        course: "数据绑定",
+                        name: "B站大学"
+                    };
+                }
+                */
+                data() {
+                    console.log("yaoguang", this);
+                    return {
+                        course: "数据绑定",
+                        name: "B站大学"
+                    };
+                }
+            });
+        </script>
+    </body>
+</html>

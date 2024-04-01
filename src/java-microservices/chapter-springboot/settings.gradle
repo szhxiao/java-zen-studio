@@ -1,0 +1,13 @@
+rootProject.name = 'chapter-springboot'
+include 'hello-springboot'
+include 'config'
+include 'logging'
+include 'jdbc'
+include 'jpa'
+include 'cache'
+include 'amqp'
+include 'elasticsearch'
+include 'task'
+include 'security'
+include 'actuator'
+

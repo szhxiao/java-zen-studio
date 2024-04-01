@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+    <head>
+        <meta charset="UTF-8" />
+        <title>编辑客户信息</title>
+        <link rel="stylesheet" href="./css/edit.css" />
+    </head>
+    <body>
+        <p class="center f30">编辑客户信息</p>
+        <div id="div_container">
+            <form th:action="@{/customer.do}" method="post" th:object="${customer}">
+                <input type="hidden" name="operate" value="update"/>
+                <input type="hidden" name="id" th:value="*{id}" />
+                <table id="tb_customers">
+                    <tr>
+                        <th>姓名</th>
+                        <td>
+                            <input type="text" name="name" th:value="*{name}" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>邮箱</th>
+                        <td>
+                            <input
+                                type="text"
+                                name="email"
+                                th:value="*{email}"
+                            />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>生日</th>
+                        <td>
+                            <input
+                                type="text"
+                                name="birth"
+                                th:value="*{birth}"
+                            />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th colspan="2">
+                            <input type="submit" value="修改" />
+                        </th>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </body>
+</html>

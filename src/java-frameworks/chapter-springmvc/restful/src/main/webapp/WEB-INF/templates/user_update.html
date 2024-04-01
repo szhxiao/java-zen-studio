@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>修改用户信息</title>
+    </head>
+    <body>
+        <form th:action="@{/user}" method="post">
+            <input type="hidden" name="_method" value="put" />
+            <input type="hidden" name="id" th:value="${user.id}" /><br />
+            姓名：<input
+                type="text"
+                name="name"
+                th:value="${user.name}"
+            /><br />
+            密码：<input
+                type="text"
+                name="password"
+                th:value="${user.password}"
+            /><br />
+            地址：<input
+                type="text"
+                name="address"
+                th:value="${user.address}"
+            /><br />
+            电话：<input
+                type="text"
+                name="phone"
+                th:value="${user.phone}"
+            /><br />
+            <input type="submit" value="修改" /><br />
+        </form>
+    </body>
+</html>

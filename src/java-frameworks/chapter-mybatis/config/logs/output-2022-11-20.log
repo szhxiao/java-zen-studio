@@ -1,0 +1,2 @@
+10:10:46.218 [Test worker] INFO  dao.UserMapperTest - [pojo.User{1, lina, ok, lina@sina.com.cn}, pojo.User{2, kate, ok, hello_kate@126.com}, pojo.User{3, jiuer, jiuer, jiuer@126.com}]
+10:14:50.069 [Test worker] INFO  dao.UserMapperTest - [pojo.User{1, lina, ok, lina@sina.com.cn}, pojo.User{2, kate, ok, hello_kate@126.com}, pojo.User{3, jiuer, jiuer, jiuer@126.com}]

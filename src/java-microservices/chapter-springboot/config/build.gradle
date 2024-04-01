@@ -1,0 +1,21 @@
+plugins {
+    id 'java'
+}
+
+group 'org.yaoguang.springboot'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation group: 'org.springframework.boot', name: 'spring-boot-configuration-processor', version: '3.0.0'
+    // JSR303数据校验
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-validation', version: '3.0.0'
+
+}
+
+test {
+    useJUnitPlatform()
+}

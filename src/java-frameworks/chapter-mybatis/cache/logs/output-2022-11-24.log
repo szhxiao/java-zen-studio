@@ -1,0 +1,12 @@
+17:03:41.952 [Test worker] DEBUG dao.UserMapper.getUserById - ==>  Preparing: SELECT `pk_id` id, `uk_uname` uname, `password`, `email` FROM user WHERE pk_id = ?
+17:03:41.972 [Test worker] DEBUG dao.UserMapper.getUserById - ==> Parameters: 1(Integer)
+17:03:41.986 [Test worker] DEBUG dao.UserMapper.getUserById - <==      Total: 1
+17:03:41.990 [Test worker] INFO  dao.UserMapperTest - pojo.User{1, lina, ok, lina@sina.com.cn}
+17:07:06.643 [Test worker] DEBUG dao.UserMapper.getUserById - ==>  Preparing: SELECT `pk_id` id, `uk_uname` uname, `password`, `email` FROM user WHERE pk_id = ?
+17:07:06.665 [Test worker] DEBUG dao.UserMapper.getUserById - ==> Parameters: 1(Integer)
+17:07:06.679 [Test worker] DEBUG dao.UserMapper.getUserById - <==      Total: 1
+17:08:06.479 [Test worker] DEBUG dao.UserMapper.getUserById - ==>  Preparing: SELECT `pk_id` id, `uk_uname` uname, `password`, `email` FROM user WHERE pk_id = ?
+17:08:06.499 [Test worker] DEBUG dao.UserMapper.getUserById - ==> Parameters: 1(Integer)
+17:08:06.512 [Test worker] DEBUG dao.UserMapper.getUserById - <==      Total: 1
+17:08:06.516 [Test worker] INFO  dao.UserMapperTest - pojo.User{1, lina, ok, lina@sina.com.cn}
+17:08:06.518 [Test worker] INFO  dao.UserMapperTest - user == user2: true

@@ -1,0 +1,35 @@
+plugins {
+    id 'java-library'
+}
+
+group 'org.yaoguang.springmvc'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+allprojects {
+    apply plugin: 'java-library'
+
+    group 'org.yaoguang.springmvc'
+    version '1.0-SNAPSHOT'
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        // springframework
+        implementation group: 'org.springframework', name: 'spring-webmvc', version: '6.0.2'
+        implementation group: 'org.thymeleaf', name: 'thymeleaf-spring6', version: '3.1.0.RELEASE'
+        compileOnly group: 'jakarta.servlet', name: 'jakarta.servlet-api', version: '6.0.0'
+
+        // 日志依赖
+        implementation group: 'org.slf4j', name: 'slf4j-api', version: '2.0.3'
+        testImplementation group: 'ch.qos.logback', name: 'logback-classic', version: '1.4.4'
+        // 测试依赖
+        testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.0'
+        testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.0'
+    }
+}

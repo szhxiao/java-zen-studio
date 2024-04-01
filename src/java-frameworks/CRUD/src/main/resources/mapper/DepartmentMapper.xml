@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.kunlun.crud.dao.DepartmentMapper">
+    <!-- <cache></cache> -->
+    <cache type="org.mybatis.caches.ehcache.EhcacheCache"/>
+
+
+    <select id="getDepartmentById" resultType="org.kunlun.crud.pojo.Department">
+        SELECT `pk_dept_id` deptId, `uk_dept_name` deptName
+        FROM `t_department` td
+        WHERE `pk_dept_id` = #{deptId}
+    </select>
+
+    <select id="listDepartmentsByName" resultType="org.kunlun.crud.pojo.Department">
+        SELECT `pk_dept_id` deptId, `uk_dept_name` deptName
+        FROM `t_department` td WHERE `uk_dept_name` LIKE #{deptName}
+    </select>
+
+    <select id="listDepartments" resultType="org.kunlun.crud.pojo.Department">
+        SELECT `pk_dept_id` deptId, `uk_dept_name` deptName
+        FROM `t_department` td
+    </select>
+
+    <insert id="insertDepartment" useGeneratedKeys="true"
+            keyProperty="deptId">
+        INSERT INTO `t_department` (`uk_dept_name`) VALUES (#{deptName})
+    </insert>
+
+    <update id="updateDepartment">
+        UPDATE `t_department`
+        <set>
+            <if test="deptName != null and deptName != ''">
+                `uk_dept_name` = #{deptName}
+            </if>
+        </set>
+        WHERE `pk_dept_id` = #{deptId}
+    </update>
+
+    <delete id="deleteDepartment">
+        DELETE FROM `t_department` WHERE `pk_dept_id` = #{deptId}
+    </delete>
+
+    <!-- <select id="countEmployeeNumber" resultType="java.lang.Integer"> -->
+    <!--     SELECT COUNT(*) FROM t_employee te WHERE dept_id = #{deptId} -->
+    <!-- </select> -->
+</mapper>

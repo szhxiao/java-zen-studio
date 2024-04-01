@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="springbootjdbc.dao.UserMapper">
+
+    <!-- 按照结果嵌套处理 -->
+    <resultMap id="userResultMap" type="springbootjdbc.pojo.User">
+        <result column="pk_id" property="id"/>
+        <result column="uk_uname" property="uname"/>
+        <result column="password" property="password"/>
+        <result column="email" property="email"/>
+    </resultMap>
+
+    <select id="getAllUsers" resultMap="userResultMap">
+        SELECT * FROM `user`
+    </select>
+
+    <select id="getUserById" resultMap="userResultMap">
+        SELECT * FROM `user` WHERE pk_id = #{id}
+    </select>
+
+    <!-- 分页查询 -->
+    <!--
+    <select id="getUserByLimit" parameterType="map" resultMap="userResultMap">
+        SELECT * FROM `user` LIMIT #{startIndex}, #{pageSize}
+    </select>
+    -->
+
+    <insert id="insertUser" parameterType="springbootjdbc.pojo.User">
+        INSERT INTO `user`(`pk_id`,`uk_uname`,`password`,`email`)
+        VALUES(#{id}, #{uname}, #{password}, #{email})
+    </insert>
+
+    <update id="updateUser" parameterType="map">
+        UPDATE `user` SET `uk_uname`=#{uname}, `password`=#{password}, `email`=#{email}
+        WHERE `pk_id`=#{id}
+    </update>
+</mapper>
