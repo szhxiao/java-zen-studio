@@ -6,5 +6,4 @@ include 'aop'
 include 'transaction'
 include 'jdbctemplate'
 include 'newfeatures'
-include 'autowired'
 
