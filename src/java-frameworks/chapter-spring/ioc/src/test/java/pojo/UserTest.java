@@ -18,6 +18,14 @@ public class UserTest {
                 "beans.xml");
         User user = context.getBean("user", User.class);
         System.out.println(user);
+    }
+
+    @Test
+    public void testNamespace() {
+        ApplicationContext context = new ClassPathXmlApplicationContext
+                ("user-bean.xml");
+        User user = context.getBean("user", User.class);
+        System.out.println(user);
 
     }
 }
